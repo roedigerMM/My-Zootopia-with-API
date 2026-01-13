@@ -1,5 +1,5 @@
-from animals_html_handling import *
-from animals_api_handling import get_animal_data_from_api
+from animals_html_handling import write_new_html_file
+from data_fetcher import fetch_data
 
 
 def serialize_animal(animal):
@@ -35,7 +35,7 @@ def get_animals_data(animal_data):
 
 def main():
     user_animal = input("Enter a name of an animal: ")
-    animals_data = get_animal_data_from_api(user_animal)
+    animals_data = fetch_data(user_animal)
     if len(animals_data) == 0:
         write_new_html_file(f'<h2>The animal "{user_animal}" does not exist.</h2>')
     else:
