@@ -34,7 +34,10 @@ def get_animals_data(animal_data):
 
 
 def main():
-    user_animal = input("Enter a name of an animal: ")
+    while True:
+        user_animal = input("Enter a name of an animal: ")
+        if user_animal != "" and type(user_animal) == str:
+            break
     animals_data = fetch_data(user_animal)
     if len(animals_data) == 0:
         write_new_html_file(f'<h2>The animal "{user_animal}" does not exist.</h2>')
