@@ -1,8 +1,6 @@
-from animals_json_handling import load_data
 from animals_html_handling import *
-from animals_api_handling import get_animal_data
+from animals_api_handling import get_animal_data_from_api
 
-animals_data = get_animal_data()
 
 def serialize_animal(animal):
     """ Serializes a single animal item into the needed structure for the html template and
@@ -36,6 +34,8 @@ def get_animals_data(animal_data):
 
 
 def main():
+    user_animal = input("Enter a name of an animal: ")
+    animals_data = get_animal_data_from_api(user_animal)
     write_new_html_file(get_animals_data(animals_data))
 
 if __name__ == "__main__":
