@@ -36,7 +36,10 @@ def get_animals_data(animal_data):
 def main():
     user_animal = input("Enter a name of an animal: ")
     animals_data = get_animal_data_from_api(user_animal)
-    write_new_html_file(get_animals_data(animals_data))
+    if len(animals_data) == 0:
+        write_new_html_file(f'<h2>The animal "{user_animal}" does not exist.</h2>')
+    else:
+        write_new_html_file(get_animals_data(animals_data))
 
 if __name__ == "__main__":
     main()
